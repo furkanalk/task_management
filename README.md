@@ -29,7 +29,7 @@ localhost:8000/api/auth/login
 
 Users can see their tasks: ``` GET ```
 ```
-127.0.0.1:8000/api/mytask
+localhost:8000/api/mytask
 ```
 Users can update their task status: ``` PUT ```
 ```
