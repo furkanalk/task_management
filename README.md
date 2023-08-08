@@ -1,5 +1,5 @@
-# bookstore_api that works with OAUTH2
-
+# bookstore_api
+Authenticated with OAUTH2
 **********************************************
 # Authentication:
 Register: ``` POST ```
@@ -42,7 +42,7 @@ localhost:8000/api/mytask/status
 ```
 > Status must be one of the following:
 ```
-    idle',
+    'idle',
     'to Do',
     'in Progress',
     'Done'
@@ -96,7 +96,7 @@ localhost:8000/api/tasks/add
 ```
 > Status must be one of the following:
 ```
-    idle',
+    'idle',
     'to Do',
     'in Progress',
     'Done'
@@ -121,7 +121,7 @@ localhost:8000/api/books/<pk>
 ```
 > Status must be one of the following:
 ```
-    idle',
+    'idle',
     'to Do',
     'in Progress',
     'Done'
