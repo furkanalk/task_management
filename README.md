@@ -1,7 +1,7 @@
 # bookstore_api
-Authenticated with OAUTH2
+
 **********************************************
-# Authentication:
+# Authentication: ``` OAUTH2 ```
 Register: ``` POST ```
 ```
 localhost:8000/api/auth/register
