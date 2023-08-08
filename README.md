@@ -8,10 +8,10 @@ localhost:8000/api/auth/register
 ```
 ```
 {
-    "username": "<username>",
-    "email": "<email>",
-    "password": "<password>"
-    "role": "<role>"
+	"username": "<username>",
+	"email": "<email>",
+	"password": "<password>"
+	"role": "<role>"
 }
 ```
 Login: ``` POST ```
@@ -20,8 +20,8 @@ localhost:8000/api/auth/login
 ```
 ```
 {
-    "username": "<username>",
-    "password": "<password>"
+	"username": "<username>",
+	"password": "<password>"
 }
 ```
 **********************************************
@@ -37,15 +37,15 @@ localhost:8000/api/mytask/status
 ```
 ```
 {
-    "status": "<status>"
+	"status": "<status>"
 }
 ```
 > Status must be one of the following:
 ```
-    'idle',
-    'to Do',
-    'in Progress',
-    'Done'
+	'idle',
+	'to Do',
+	'in Progress',
+	'Done'
 ```
 **********************************************
 # Available commands for Admin Users:
@@ -60,10 +60,10 @@ localhost:8000/api/users/add
 ```
 ```
 {
-    "username": "<username>",
-    "email": "<email>",
-    "password": "<password>"
-    "role": "<role>"
+	"username": "<username>",
+    	"email": "<email>",
+    	"password": "<password>",
+	"role": "<role>"
 }
 ```
 Get or delete a certain User: ``` GET ``` ``` DELETE ```
@@ -76,9 +76,9 @@ localhost:8000/api/users/<pk>
 ```
 ```
 {
-    "username": "<username>",
-    "email": "<email>",
-    "role": "<role>"
+	"username": "<username>",
+	"email": "<email>",
+	"role": "<role>"
 }
 ```
 Add a new Task: ``` POST ```
@@ -87,19 +87,19 @@ localhost:8000/api/tasks/add
 ```
 ```
 {
-			"task_name": "<task-name>",
-			"task_description": "<description>",
-			"due_date": "<date>",
-			"assignee": <id of the user>,
-			"status": "<status>"
+	"task_name": "<task-name>",
+	"task_description": "<description>",
+	"due_date": "<date>",
+	"assignee": <id of the user>,
+	"status": "<status>"
 }
 ```
 > Status must be one of the following:
 ```
-    'idle',
-    'to Do',
-    'in Progress',
-    'Done'
+	'idle',
+	'to Do',
+	'in Progress',
+	'Done'
 ```
 Get or delete a certain task: ``` GET ``` ``` DELETE ```
 ```
@@ -111,18 +111,18 @@ localhost:8000/api/books/<pk>
 ```
 ```
 {
-      id": <task-id>,
-			"task_name": "<task-name>",
-			"task_description": "<description>",
-			"due_date": "<date>",
-			"assignee": <id of the user>,
-			"status": "<status>"
+	"id": <task-id>,
+	"task_name": "<task-name>",
+	"task_description": "<description>",
+	"due_date": "<date>",
+	"assignee": <id of the user>,
+	"status": "<status>"
 }
 ```
 > Status must be one of the following:
 ```
-    'idle',
-    'to Do',
-    'in Progress',
-    'Done'
+	'idle',
+	'to Do',
+	'in Progress',
+	'Done'
 ```
