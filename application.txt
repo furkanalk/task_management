@@ -1,3 +1,0 @@
-Name: Task-Management
-Client_id: WADFAMSsLkBAomXRqfP8EGhCAqs8bSTRoJIfK906
-Client_secret: 8XEGAPjq3gBNWSCdIYSSLH5Nom3P06lwdxtEpFQYQhChHbIXSahkOl3lDUCH9hqrKx8MyG7rq7YzL9orKYDo5qf1Ft8znjZ5mXwoji8UqKdP48l1PHWByogbIUidSUVk
