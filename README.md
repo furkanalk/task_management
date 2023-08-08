@@ -27,7 +27,7 @@ localhost:8000/api/auth/login
 **********************************************
 # Available commands for Authenticated Users:
 
-Shows Users' their task: ``` GET ```
+Users can see their tasks: ``` GET ```
 ```
 127.0.0.1:8000/api/mytask
 ```
