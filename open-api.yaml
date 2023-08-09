@@ -96,7 +96,7 @@ paths:
     get:
       tags:
         - User
-      description: Shows all the users (Admin privilage)
+      description: Shows all the users (Admin privilege)
       operationId: user
       security:
       - bearerAuth: []
@@ -118,7 +118,7 @@ paths:
     get:
       tags:
         - User
-      description: Finds the User by id (Admin privilage)
+      description: Finds the User by id (Admin privilege)
       operationId: getUser
       parameters:
         - name: userId
@@ -146,7 +146,7 @@ paths:
     put:
       tags:
         - User
-      description: Updates the User (Admin privilage)
+      description: Updates the User (Admin privilege)
       operationId: updateUser
       parameters:
         - name: userId
@@ -181,7 +181,7 @@ paths:
     delete:
       tags:
         - User
-      description: Deletes the User (Admin privilage)
+      description: Deletes the User (Admin privilege)
       operationId: deleteUser
       parameters:
         - name: userId
@@ -206,7 +206,7 @@ paths:
     post:
       tags:
         - User
-      description: Adds a new user (Admin privilage)
+      description: Adds a new user (Admin privilege)
       operationId: userAdd
       requestBody:
         content:
@@ -252,7 +252,7 @@ paths:
     get:
       tags:
         - Task
-      description: Shows all the tasks (Admin privilage)
+      description: Shows all the tasks (Admin privilege)
       operationId: task
       security:
       - bearerAuth: []
@@ -274,7 +274,7 @@ paths:
     get:
       tags:
         - Task
-      description: Finds the Task by id (Admin privilage)
+      description: Finds the Task by id (Admin privilege)
       operationId: getTask
       parameters:
         - name: taskId
@@ -302,7 +302,7 @@ paths:
     put:
       tags:
         - Task
-      description: Updates the Task (Admin privilage)
+      description: Updates the Task (Admin privilege)
       operationId: updateTask
       parameters:
         - name: taskId
@@ -363,7 +363,7 @@ paths:
     post:
       tags:
         - Task
-      description: Adds a new task (Admin privilage)
+      description: Adds a new task (Admin privilege)
       operationId: taskAdd
       requestBody:
         content:
