@@ -1,0 +1,486 @@
+openapi: 3.0.3
+info:
+  title: Task Management API
+  description: |-
+    an API made with DRF to work with Docker that's linked to Postgres.
+    
+    Github:
+    - [API repository](https://github.com/furkanalk/task_management_api)
+
+  contact: 
+    name: 'example'
+    email: 'example@gmail.com'
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000
+tags:
+  - name: Autharization
+    description: Registration and login
+  - name: User
+    description: Requests about users
+  - name: Task
+    description: Requests about tasks
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Autharization
+      description: Register user into the system
+      operationId: register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: 'username'
+                email:
+                  type: string
+                  example: 'example@gmail.com'
+                password:
+                  type: string
+                  example: 'password'
+                role:
+                  type: string
+                  example: 'role'
+      responses:
+        '201':
+          description: Register successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '405':
+          description: Method not allowed
+        '406':
+          description: Not acceptable
+
+  /auth/login:
+    post:
+      tags:
+        - Autharization
+      description: Log user into the system
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: 'username or mail@example.com'
+                password:
+                  type: string
+                  example: 'password'
+      responses:
+        '200':
+          description: Login successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+        '405':
+          description: Method not allowed
+        '406':
+          description: Not acceptable
+
+  /users:
+    get:
+      tags:
+        - User
+      description: Shows all the users (Admin privilage)
+      operationId: user
+      responses:
+        '201':
+          description: Request successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '405':
+          description: Method not allowed
+  
+  /users/{userId}:
+    get:
+      tags:
+        - User
+      description: Finds the User by id (Admin privilage)
+      operationId: getUser
+      parameters:
+        - name: userId
+          in: path
+          description: Id values that need to be considered for filter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Request successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized
+        '404':
+          description: User not found
+        '405':
+          description: Method not allowed
+    
+    put:
+      tags:
+        - User
+      description: Updates the User (Admin privilage)
+      operationId: updateUser
+      parameters:
+        - name: userId
+          in: path
+          description: Id values that need to be considered for filter
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User information changed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid or missing information
+        '401':
+          description: Unauthorized
+        '404':
+          description: User not found
+        '405':
+          description: Method not allowed
+
+    delete:
+      tags:
+        - User
+      description: Deletes the User (Admin privilage)
+      operationId: deleteUser
+      parameters:
+        - name: userId
+          in: path
+          description: Id values that need to be considered for filter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: The User with ID NO = {userId}, has been deleted.
+        '401':
+          description: Unauthorized
+        '404':
+          description: User not found
+        '405':
+          description: Method not allowed
+
+  /users/add:
+    post:
+      tags:
+        - User
+      description: Adds a new user (Admin privilage)
+      operationId: userAdd
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 0
+                username:
+                  type: string
+                  example: 'username'
+                email:
+                  type: string
+                  example: 'example@gmail.com'
+                password:
+                  type: string
+                  example: 'password'
+                role:
+                  type: string
+                  example: 'role'
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid or missing information
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '405':
+          description: Method not allowed
+
+  /tasks:
+    get:
+      tags:
+        - Task
+      description: Shows all the tasks (Admin privilage)
+      operationId: task
+      responses:
+        '200':
+          description: Request succesful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '405':
+          description: Method not allowed
+
+  /tasks/{taskId}:
+    get:
+      tags:
+        - Task
+      description: Finds the Task by id (Admin privilage)
+      operationId: getTask
+      parameters:
+        - name: taskId
+          in: path
+          description: Id values that need to be considered for filter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Request successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Task not found
+        '405':
+          description: Method not allowed
+    
+    put:
+      tags:
+        - Task
+      description: Updates the Task (Admin privilage)
+      operationId: updateTask
+      parameters:
+        - name: taskId
+          in: path
+          description: Id values that need to be considered for filter
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200':
+          description: Request successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: Invalid or missing information
+        '401':
+          description: Unauthorized
+        '404':
+          description: Task not found
+        '405':
+          description: Method not allowed
+
+    delete:
+      tags:
+        - Task
+      description: Deletes the Task (Admin privilage)
+      operationId: deleteTask
+      parameters:
+        - name: taskId
+          in: path
+          description: Id values that need to be considered for filter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Task named "Example", has been deleted.
+        '401':
+          description: Unauthorized
+        '404':
+          description: Task not found
+        '405':
+          description: Method not allowed
+
+  /tasks/add:
+    post:
+      tags:
+        - Task
+      description: Adds a new task (Admin privilage)
+      operationId: taskAdd
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                task_name:
+                  type: string
+                  example: 'task_name'
+                task_description:
+                  type: string
+                  example: 'task_description'
+                due_date:
+                  type: string
+                  example: 'due_date'
+                assignee:
+                  type: integer
+                  example: 0
+                status:
+                  type: string
+                  example: 'status'
+      responses:
+        '201':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: Invalid or missing information
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '405':
+          description: Method not allowed
+
+  /mytask:
+    get:
+      tags:
+        - Task
+      description: Shows User's task
+      operationId: myTask
+      responses:
+        '200':
+          description: Request successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '401':
+          description: Unauthorized
+        '405':
+          description: Method not allowed
+
+  /mytask/status:
+    put:
+      tags:
+        - Task
+      description: Updates User's task
+      operationId: updateMyStatus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum:
+                    - idle
+                    - to Do
+                    - in Progress
+                    - Done
+      responses:
+        '200':
+          description: Request successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - idle
+                      - to Do
+                      - in Progress
+                      - Done
+        '400':
+          description: Invalid or missing information
+        '401':
+          description: Unauthorized
+        '404':
+          description: Task not found
+        '405':
+          description: Method not allowed
+
+components:
+  schemas: 
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 0
+        username:
+          type: string
+          example: 'username'
+        email:
+          type: string
+          example: 'example@gmail.com'
+        role:
+          type: string
+          example: 'role'
+      xml:
+        name: user
+    
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 0
+        task_name:
+          type: string
+          example: 'task_name'
+        task_description:
+          type: string
+          example: 'task_description'
+        due_date:
+          type: string
+          example: 'due_date'
+        assignee:
+          type: integer
+          example: 0
+        status:
+          type: string
+          enum: [idle, to Do, in Progress, Done]
+      xml:
+        name: task

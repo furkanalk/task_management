@@ -23,9 +23,9 @@ def registerUser(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
     else:
-        return Response(status=status.HTTP_400_BAD_REQUEST)
+        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 # Login
 @api_view(['POST'])
@@ -56,15 +56,7 @@ def loginUser(request):
         
         if user:
             return HttpResponse(result, status=status.HTTP_200_OK)
-        
-        
-        return Response({'error': 'Username or password is incorrect.'}, status=status.HTTP_401_UNAUTHORIZED)
-
-# Logout
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def logoutUser(request):
-    if request.method == 'POST':        
-        return Response({'message': 'Successfully logged out.'}, status=status.HTTP_200_OK)
-    else:
-        return HttpResponseNotAllowed(request.method)
+                  
+        return Response({'error': 'Username or password is incorrect.'}, status=status.HTTP_406_NOT_ACCEPTABLE)
+    
+    return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
