@@ -15,7 +15,7 @@ info:
 servers:
   - url: http://localhost:8000
 tags:
-  - name: Autharization
+  - name: Authorization
     description: Registration and login
   - name: User
     description: Requests about users
@@ -25,7 +25,7 @@ paths:
   /auth/register:
     post:
       tags:
-        - Autharization
+        - Authorization
       description: Register user into the system
       operationId: register
       requestBody:
@@ -62,7 +62,7 @@ paths:
   /auth/login:
     post:
       tags:
-        - Autharization
+        - Authorization
       description: Log user into the system
       operationId: login
       requestBody:
