@@ -4,7 +4,7 @@
 # Authentication: ``` OAUTH2 ```
 Register: ``` POST ```
 ```
-localhost:8000/api/auth/register
+localhost:8000/auth/register
 ```
 ```
 {
@@ -16,7 +16,7 @@ localhost:8000/api/auth/register
 ```
 Login: ``` POST ```
 ```
-localhost:8000/api/auth/login
+localhost:8000/auth/login
 ```
 ```
 {
@@ -29,11 +29,11 @@ localhost:8000/api/auth/login
 
 Users can see their tasks: ``` GET ```
 ```
-localhost:8000/api/mytask
+localhost:8000/mytask
 ```
 Users can update their task status: ``` PUT ```
 ```
-localhost:8000/api/mytask/status
+localhost:8000/mytask/status
 ```
 ```
 {
@@ -52,27 +52,27 @@ localhost:8000/api/mytask/status
 
 Show all the Users: ``` GET ```
 ```
-localhost:8000/api/users
+localhost:8000/users
 ```
 Add a new User: ``` POST ```
 ```
-localhost:8000/api/users/add
+localhost:8000/users/add
 ```
 ```
 {
 	"username": "<username>",
-    	"email": "<email>",
-    	"password": "<password>",
+    "email": "<email>",
+    "password": "<password>",
 	"role": "<role>"
 }
 ```
 Get or delete a certain User: ``` GET ``` ``` DELETE ```
 ```
-localhost:8000/api/users/<pk>
+localhost:8000/users/<pk>
 ```
 Update a certain User: ``` PUT ```
 ```
-localhost:8000/api/users/<pk>
+localhost:8000/users/<pk>
 ```
 ```
 {
@@ -83,7 +83,7 @@ localhost:8000/api/users/<pk>
 ```
 Add a new Task: ``` POST ```
 ```
-localhost:8000/api/tasks/add
+localhost:8000/tasks/add
 ```
 ```
 {
@@ -103,11 +103,11 @@ localhost:8000/api/tasks/add
 ```
 Get or delete a certain task: ``` GET ``` ``` DELETE ```
 ```
-localhost:8000/api/tasks/<pk>
+localhost:8000/tasks/<pk>
 ```
 Update a certain Task: ``` PUT ``` 
 ```
-localhost:8000/api/books/<pk>
+localhost:8000/tasks/<pk>
 ```
 ```
 {
